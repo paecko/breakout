@@ -3,28 +3,29 @@ class Settings():
 
     def __init__(self):
 
-        #Game active or not
+        # Game over or not, becomes True when balls run out, then stop game and displays play button
+        self.game_over = False
 
 
-        #Screen settings
+        # Screen settings
         self.screen_width = 600
         self.screen_height = 600
         self.background_color = (105,105,105)
 
-        #paddle settings
-        self.paddle_speed = 0.5
+        # paddle settings
+        self.paddle_speed = 1
 
-        #self.paddle_width = 600  //when paddle was a rect, now a image
-        #self.paddle_length = 15
-        #self.paddle_color = (0, 0, 255)
+        # self.paddle_width = 600  //when paddle was a rect, now a image
+        # self.paddle_length = 15
+        # self.paddle_color = (0, 0, 255)
 
-        #Ball settings
+        # Ball settings
         self.ball_color = (0,0,255)
         self.start_x = int(self.screen_width/2)
         self.start_y = int(self.screen_height/2)
-        self.ball_speed_x_holder = 0.5
+        self.ball_speed_x_holder = 1.5
         self.ball_speed_x = self.ball_speed_x_holder
-        self.ball_speed_y = 0.7
+        self.ball_speed_y = 1.5
         self.speed_factor = 0.3
         self.maxbounceangle = (5*math.pi)/12
         self.total_balls = 99
@@ -61,9 +62,6 @@ class Settings():
         self.score_holder = 0
         self.score = self.score_holder
 
-
-        #Becomes True when balls run out, stop game and displays play button
-        self.game_active = False
 
         #If game over sound plays or not
         self.play_sound = True
