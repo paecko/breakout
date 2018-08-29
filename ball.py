@@ -27,21 +27,13 @@ class Ball(Sprite):
 
     def check_ball_collisions(self):
 
-        #Screen collision
-        if self.rect.right >= self.screen_rect.right:
+        # Check border collision (right, left, top)
+        if (self.rect.right >= self.screen_rect.right) or (self.rect.left <= self.screen_rect.left) \
+                or (self.rect.top <= self.screen_rect.top):
             effect = pygame.mixer.Sound('sounds/pong3.wav')
             effect.play()
-            self.gs.ball_speed_x  *= -1
-
-        if self.rect.left <= self.screen_rect.left:
-            effect = pygame.mixer.Sound('sounds/pong3.wav')
-            effect.play()
-
-
-            self.gs.ball_speed_x  *= -1
-
-        if self.rect.top <= self.screen_rect.top:
-            self.gs.ball_speed_y *=  -1
+            # multiply by negative to make it go in opposite direction as it bounces off wall.
+            self.gs.ball_speed_x *= -1
 
         #Paddle collision
 
